@@ -5,7 +5,9 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com_demoqa_util.Baseclass;
@@ -61,14 +63,24 @@ public class Elements extends Baseclass{
        		driver.findElement(By.xpath("//button[@id='submit']")).click();
        		
        		}
-           public static void buttontest() {
+           public static void buttontest() throws InterruptedException {
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
+       		 WebElement button = driver.findElement(By.xpath("//span[text()='Buttons']"));
+       		jse.executeScript("arguments[0].click()",button);
+
+       		WebElement doubleclick = driver.findElement(By.xpath("//button[@id='doubleClickBtn']"));
+       		WebElement rightclick = driver.findElement(By.xpath("//button[@id='rightClickBtn']"));
+       		WebElement click = driver.findElement(By.xpath("//button[text()='Click Me']"));
        		
+       		Actions action = new Actions(driver);
+       		action.doubleClick(doubleclick).perform();
+       		action.contextClick(rightclick).perform();
+       		action.click(click);
            }
            public static void main(String[] args) throws InterruptedException {
 			Baseclass.initialize();
-			Elements.webtable();
+			Elements.buttontest();
 		}
 }
