@@ -3,3 +3,5 @@
 .classpath
 .project
 /.settings
+test-output/junitreports/TEST-com_demoqa.FormsTest.xml
+/test-output

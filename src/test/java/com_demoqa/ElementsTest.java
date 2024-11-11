@@ -9,11 +9,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import com_demoqa_util.Baseclass;
 
-public class Elements extends Baseclass{
+public class ElementsTest extends Baseclass{
+	@Test
            public static void testbox() {
+		 Baseclass.initialize();
         WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
         JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click()",element);
@@ -25,7 +28,9 @@ public class Elements extends Baseclass{
         	   driver.findElement(By.xpath("//textarea[@id='permanentAddress']")).sendKeys("bangalore");
         	   driver.findElement(By.xpath("//button[@id='submit']")).submit();
            }
+           @Test
            public static void checkbox() throws InterruptedException {
+        	   Baseclass.initialize();
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -35,7 +40,9 @@ public class Elements extends Baseclass{
        		
        		
            }
+           @Test
            public static void Radiobutton() throws InterruptedException {
+        	   Baseclass.initialize();
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -48,7 +55,9 @@ public class Elements extends Baseclass{
        		WebElement element2 = driver.findElement(By.xpath("//input[@id='impressiveRadio']"));
        		jse1.executeScript("arguments[0].click()",element2);
        		}
+           @Test
            public static void webtable() {
+        	   Baseclass.initialize();
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -63,7 +72,9 @@ public class Elements extends Baseclass{
        		driver.findElement(By.xpath("//button[@id='submit']")).click();
        		
        		}
-           public static void buttontest() throws InterruptedException {
+           @Test
+           public static void buttontest()  {
+        	   Baseclass.initialize();
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -79,8 +90,41 @@ public class Elements extends Baseclass{
        		action.contextClick(rightclick).perform();
        		action.click(click);
            }
-           public static void main(String[] args) throws InterruptedException {
-			Baseclass.initialize();
-			Elements.buttontest();
-		}
+           @Test
+           public static void links() {
+        	   Baseclass.initialize();
+        	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
+               JavascriptExecutor jse=(JavascriptExecutor)driver;
+       		jse.executeScript("arguments[0].click()",element);
+       		WebElement links = driver.findElement(By.xpath("//span[text()='Links']"));
+       		jse.executeScript("arguments[0].click()",links);
+       		driver.findElement(By.id("simpleLink")).click();
+       		driver.findElement(By.id("dynamicLink")).click();
+       		WebElement created = driver.findElement(By.xpath("//a[text()='Created']"));
+       		jse.executeScript("arguments[0].click()",created);
+           }	
+          @Test
+           public void brokenlinks()  {
+        	  Baseclass.initialize();
+        	  WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
+              JavascriptExecutor jse=(JavascriptExecutor)driver;
+      		jse.executeScript("arguments[0].click()",element);
+      		WebElement brokenlinks = driver.findElement(By.xpath("//span[text()='Broken Links - Images']"));
+      		jse.executeScript("arguments[0].click()",brokenlinks);
+      		
+      		WebElement validlink = driver.findElement(By.xpath("//a[text()='Click Here for Valid Link']"));
+      		jse.executeScript("arguments[0].click()",validlink);
+           }
+          @Test
+          public void downloadandupload() {
+        	  Baseclass.initialize();
+        	  WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
+              JavascriptExecutor jse=(JavascriptExecutor)driver;
+      		jse.executeScript("arguments[0].click()",element);
+      		WebElement uploadanddownload = driver.findElement(By.xpath("//span[text()='Upload and Download']"));
+      		jse.executeScript("arguments[0].click()",uploadanddownload);
+      		WebElement upload = driver.findElement(By.xpath("//input[@id='uploadFile']"));
+      		upload.sendKeys("C:\\Users\\Qapitol QA\\Downloads\\WhatsApp Image 2024-11-07 at 6.29.40 PM.jpeg");
+      		 driver.findElement(By.xpath("//a[text()='Download']")).click();
+          }
 }
