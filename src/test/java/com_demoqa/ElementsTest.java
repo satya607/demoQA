@@ -11,12 +11,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import com_demoqa_util.Baseclass;
+import utility.Baseclass;
 
 public class ElementsTest extends Baseclass{
 	@Test
            public static void testbox() {
-		 Baseclass.initialize();
+		
         WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
         JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click()",element);
@@ -30,7 +30,7 @@ public class ElementsTest extends Baseclass{
            }
            @Test
            public static void checkbox() throws InterruptedException {
-        	   Baseclass.initialize();
+        	  
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -42,7 +42,7 @@ public class ElementsTest extends Baseclass{
            }
            @Test
            public static void Radiobutton() throws InterruptedException {
-        	   Baseclass.initialize();
+        	  
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -57,7 +57,7 @@ public class ElementsTest extends Baseclass{
        		}
            @Test
            public static void webtable() {
-        	   Baseclass.initialize();
+        	   
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -74,7 +74,7 @@ public class ElementsTest extends Baseclass{
        		}
            @Test
            public static void buttontest()  {
-        	   Baseclass.initialize();
+        	
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -92,7 +92,7 @@ public class ElementsTest extends Baseclass{
            }
            @Test
            public static void links() {
-        	   Baseclass.initialize();
+        	   
         	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
                JavascriptExecutor jse=(JavascriptExecutor)driver;
        		jse.executeScript("arguments[0].click()",element);
@@ -105,7 +105,7 @@ public class ElementsTest extends Baseclass{
            }	
           @Test
            public void brokenlinks()  {
-        	  Baseclass.initialize();
+        	  
         	  WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
               JavascriptExecutor jse=(JavascriptExecutor)driver;
       		jse.executeScript("arguments[0].click()",element);
@@ -117,7 +117,7 @@ public class ElementsTest extends Baseclass{
            }
           @Test
           public void downloadandupload() {
-        	  Baseclass.initialize();
+        	 
         	  WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
               JavascriptExecutor jse=(JavascriptExecutor)driver;
       		jse.executeScript("arguments[0].click()",element);

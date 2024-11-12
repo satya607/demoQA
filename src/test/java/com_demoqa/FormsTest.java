@@ -3,20 +3,22 @@ package com_demoqa;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-import com_demoqa_util.Baseclass;
+import utility.Baseclass;
+
+
 
 public class FormsTest extends Baseclass {
  @Test
- public void practiceform() {
-	 Baseclass.initialize();
+ public void practiceform() throws InterruptedException {
+	 
 	 WebElement element = driver.findElement(By.xpath("//h5[text()='Forms']"));
      JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click()",element);
-		 // WebElement forms = driver.findElement(By.xpath("//div[text()='Forms']"));
-		 // jse.executeScript("arguments[0].click()", forms);
+		
 		  WebElement practiceform = driver.findElement(By.xpath("//span[text()='Practice Form']"));
 		  jse.executeScript("arguments[0].click()", practiceform);
 		  driver.findElement(By.id("firstName")).sendKeys("satya");
@@ -42,7 +44,12 @@ public class FormsTest extends Baseclass {
 		   WebElement upload = driver.findElement(By.xpath("//input[@id='uploadPicture']"));
 		   upload.sendKeys("C:\\Users\\Qapitol QA\\Pictures\\profile pic.jpg");
 		   driver.findElement(By.xpath("//textarea[@id='currentAddress']")).sendKeys("monnam");
-		   driver.findElement(By.xpath("//label[text()='State and City']")).click();
-		 //  driver.findElement(By.xpath("//textarea[@id='currentAddress']")).sendKeys("monnam");
+		   Thread.sleep(4000);
+		   WebElement state = driver.findElement(By.xpath("//div[text()='Select State']"));
+		   Actions action = new Actions(driver);
+		   action.click(state);
+		   action.sendKeys("NCR").perform();
+		   driver.findElement(By.xpath("//button[@id='submit']")).click();
+		
  }
 }
