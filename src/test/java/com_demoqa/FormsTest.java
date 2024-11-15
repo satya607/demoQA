@@ -45,11 +45,10 @@ public class FormsTest extends Baseclass {
 		   upload.sendKeys("C:\\Users\\Qapitol QA\\Pictures\\profile pic.jpg");
 		   driver.findElement(By.xpath("//textarea[@id='currentAddress']")).sendKeys("monnam");
 		   Thread.sleep(4000);
-		   WebElement state = driver.findElement(By.xpath("//div[text()='Select State']"));
-		   Actions action = new Actions(driver);
-		   action.click(state);
-		   action.sendKeys("NCR").perform();
-		   driver.findElement(By.xpath("//button[@id='submit']")).click();
+		   driver.findElement(By.xpath("//div[@class=' css-1gtu0rj-indicatorContainer']//*[name()='svg']")).click();
+		   
+		   driver.findElement(By.xpath("//div[text()='NCR']")).click();
+		  
 		
  }
 }

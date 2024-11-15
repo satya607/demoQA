@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Widget">
+  <test thread-count="2" name="Test">
+    <classes>
+      <class name="com_demoqa.Widgets"/>
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="2" name="Test1">
+    <classes>
+      <class name="com_demoqa.Widgets"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- widget -->
