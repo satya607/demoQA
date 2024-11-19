@@ -7,50 +7,47 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ListenerImpementation implements ITestListener  {
-	private static ExtentReports extent;
-    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+	 private static ExtentReports extentReports;
+	    private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
-    @Override
-    public void onStart(ITestContext context) {
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
-        htmlReporter.config().setTheme(Theme.STANDARD);
-        htmlReporter.config().setDocumentTitle("Test Report");
-        htmlReporter.config().setReportName("Extent Report");
+	    @Override
+	    public void onStart(ITestContext context) {
+	        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("extent-report.html");
+	        sparkReporter.config().setReportName("Automation Test Report");
+	        sparkReporter.config().setDocumentTitle("Test Results");
 
-        extent = new ExtentReports();
-        extent.attachReporter(htmlReporter);
-        extent.setSystemInfo("Host Name", "LocalHost");
-        extent.setSystemInfo("Environment", "QA");
-        extent.setSystemInfo("User Name", "Tester");
-    }
+	        extentReports = new ExtentReports();
+	        extentReports.attachReporter(sparkReporter);
+	        extentReports.setSystemInfo("Tester", "Satya");
+	    }
 
-    @Override
-    public void onTestStart(ITestResult result) {
-        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
-        test.set(extentTest);
-    }
+	    @Override
+	    public void onTestStart(ITestResult result) {
+	        ExtentTest test = extentReports.createTest(result.getMethod().getMethodName());
+	        extentTest.set(test);
+	    }
 
-    @Override
-    public void onTestSuccess(ITestResult result) {
-        test.get().log(Status.PASS, "Test Passed");
-    }
+	    @Override
+	    public void onTestSuccess(ITestResult result) {
+	        extentTest.get().pass("Test Passed");
+	    }
 
-    @Override
-    public void onTestFailure(ITestResult result) {
-        test.get().log(Status.FAIL, "Test Failed");
-        test.get().log(Status.FAIL, result.getThrowable());
-    }
+	    @Override
+	    public void onTestFailure(ITestResult result) {
+	        extentTest.get().fail("Test Failed: " + result.getThrowable());
+	    }
 
-    @Override
-    public void onTestSkipped(ITestResult result) {
-        test.get().log(Status.SKIP, "Test Skipped");
-    }
+	    @Override
+	    public void onTestSkipped(ITestResult result) {
+	        extentTest.get().skip("Test Skipped");
+	    }
 
-    @Override
-    public void onFinish(ITestContext context) {
-        extent.flush();
-    }
+	    @Override
+	    public void onFinish(ITestContext context) {
+	        extentReports.flush();
+	    }
 }

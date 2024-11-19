@@ -14,7 +14,10 @@ public class Loginbookstore_pom extends Webdriverutil {
   public Loginbookstore_pom(WebDriver driver) {
 	  PageFactory.initElements(driver, this);
   }
-  @FindBy(xpath="//input[@id='userName']")
+  @FindBy(xpath="//span[normalize-space()='Login']")
+  private WebElement loginlink;
+ 
+@FindBy(xpath="//input[@id='userName']")
   private WebElement username;
   @FindBy(xpath="//input[@id='password']")
   private WebElement password;
@@ -23,6 +26,9 @@ public class Loginbookstore_pom extends Webdriverutil {
    public WebElement getUsername() {
 	return username;
 }
+   public WebElement getLoginlink() {
+		return loginlink;
+	}
 public WebElement getPassword() {
 	return password;
 }
@@ -33,7 +39,7 @@ public void login(String un,String pass) {
 	  username.sendKeys(un);
 	  password.sendKeys(pass);
 	
-	  submit.click();
+	  //submit.click();
   }
 public void clickbyjse(WebDriver driver,WebElement element) {
 	JavascriptExecutor jse=(JavascriptExecutor)driver;

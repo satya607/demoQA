@@ -129,5 +129,16 @@ public void date_picker() {
 			WebElement tooltip = driver.findElement(By.xpath("//span[text()='Tool Tips']"));
 			jse.executeScript("arguments[0].click()",tooltip);
 	}
+	@Test
+	public void selectmenu() {
+		WebElement element = driver.findElement(By.xpath("//h5[text()='Widgets']"));
+	    JavascriptExecutor jse=(JavascriptExecutor)driver;
+			jse.executeScript("arguments[0].click()",element);
+			WebElement selectmenu = driver.findElement(By.xpath("//span[text()='Select Menu']"));
+			jse.executeScript("arguments[0].click()",selectmenu);
+			driver.findElement(By.xpath("//div[text()='Select Option']")).click();
+			WebElement ele = driver.findElement(By.xpath("//div[text()='Group 2, option 1']"));
+			jse.executeScript("arguments[0].click()",ele);
+	}
 			
 }

@@ -18,12 +18,12 @@ public class loginbookstoreTest extends Baseclass{
 	 Homepage_pom hp=new Homepage_pom(driver);
 	 WebElement element = hp.getBookstoreapp();
 	 webutil.clickonelement(driver, element);
-	 WebElement loginlink = hp.getLoginlink();
-	 webutil.clickonelement(driver, loginlink);
 	 Loginbookstore_pom lbk = new Loginbookstore_pom(driver);
-	
+	WebElement loginlink = lbk.getLoginlink();
+	webutil.clickonelement(driver, loginlink);
 	lbk.login(username,password);
-	 
+	WebElement submit = lbk.getSubmit();
+	webutil.clickonelement(driver, submit);
 	}
 	@DataProvider
 	public Object[][] getdata(){
