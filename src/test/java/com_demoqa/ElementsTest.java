@@ -2,6 +2,7 @@ package com_demoqa;
 
 import java.time.Duration;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -9,14 +10,16 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pases.Element_pom;
 import pases.Homepage_pom;
 import utility.Baseclass;
+import utility.ListenerImpementation;
 import utility.Webdriverutil;
 import utility.excelutil;
-
+@Listeners(ListenerImpementation.class)
 public class ElementsTest extends Baseclass{
 	
 	@Test(priority=1)
@@ -37,13 +40,6 @@ public class ElementsTest extends Baseclass{
            }
            @Test(priority=2)
            public static void checkbox() throws InterruptedException {
-        	  
-//        	   WebElement element = driver.findElement(By.xpath("//h5[text()='Elements']"));
-//               JavascriptExecutor jse=(JavascriptExecutor)driver;
-//       		jse.executeScript("arguments[0].click()",element);
-//       		driver.findElement(By.xpath("//span[text()='Check Box']")).click();
-//       		driver.findElement(By.xpath("//span[@class='rct-checkbox']")).click();
-//       		driver.findElement(By.xpath("//button[@aria-label='Expand all']")).click();
         	   Webdriverutil	webutil=new Webdriverutil();
        		excelutil excelutil = new excelutil();
        		 Homepage_pom hp = new Homepage_pom(driver);
@@ -53,7 +49,6 @@ public class ElementsTest extends Baseclass{
        		 WebElement checkbox = elements.getCheckbox();
        		 webutil.clickonelement(driver, checkbox);
        		 
-       		
            }
            @Test(dependsOnMethods="checkbox")
            public static void Radiobutton() throws InterruptedException {

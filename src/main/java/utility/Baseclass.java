@@ -8,13 +8,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 public class Baseclass {
 public static WebDriver driver;
       fileutility fileutil=new fileutility();
+     
       @BeforeClass
+     // @Parameters("browser")
       public void launchbrowser() throws Throwable {
-    	  String browser = fileutil.readfiledata("browser");
+    	   String browser = fileutil.readfiledata("browser");
     	  if(browser.equalsIgnoreCase("chrome")) {
     		  driver=new ChromeDriver();
     	  }

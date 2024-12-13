@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import utility.Baseclass;
 
 public class Widgets extends Baseclass {
-	@Parameters("browser")
+	
 @Test
 public void Accordian() {
 	  WebElement element = driver.findElement(By.xpath("//h5[text()='Widgets']"));

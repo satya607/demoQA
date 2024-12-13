@@ -12,13 +12,15 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ListenerImpementation implements ITestListener  {
 	 private static ExtentReports extentReports;
+	 ExtentSparkReporter sparkReporter;
 	    private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
 	    @Override
 	    public void onStart(ITestContext context) {
-	        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("extent-report.html");
+	        sparkReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/Report/ExtentReport.html");
 	        sparkReporter.config().setReportName("Automation Test Report");
 	        sparkReporter.config().setDocumentTitle("Test Results");
+	        sparkReporter.config().setTheme(Theme.DARK);
 
 	        extentReports = new ExtentReports();
 	        extentReports.attachReporter(sparkReporter);
@@ -39,6 +41,7 @@ public class ListenerImpementation implements ITestListener  {
 	    @Override
 	    public void onTestFailure(ITestResult result) {
 	        extentTest.get().fail("Test Failed: " + result.getThrowable());
+	        
 	    }
 
 	    @Override
