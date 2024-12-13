@@ -11,23 +11,30 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 public class Baseclass {
-public static WebDriver driver;
-      fileutility fileutil=new fileutility();
+		public static WebDriver driver;
+		fileutility fileutil=new fileutility();
      
       @BeforeClass
-     // @Parameters("browser")
       public void launchbrowser() throws Throwable {
-    	   String browser = fileutil.readfiledata("browser");
-    	  if(browser.equalsIgnoreCase("chrome")) {
-    		  driver=new ChromeDriver();
-    	  }
-    	  else if(browser.equalsIgnoreCase("edge")) {
-    		  driver=new EdgeDriver();
-    	  }
-    	  else {
-    		  System.out.println("invalid browser");
-    	  }
-    	  driver.manage().window().maximize();
+    	  
+    	  try {
+    		  
+    		  String browser = fileutil.readfiledata("browser");
+        	  if(browser.equalsIgnoreCase("chrome")) {
+        		  driver=new ChromeDriver();
+        	  }
+        	  else if(browser.equalsIgnoreCase("edge")) {
+        		  driver=new EdgeDriver();
+        	  }
+        	  else {
+        		  System.out.println("invalid browser");
+        	  }
+        	  driver.manage().window().maximize();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    			  
       }
       @BeforeMethod
       public void login() throws Throwable {
