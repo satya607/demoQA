@@ -24,7 +24,7 @@ public void Accordian() {
 			jse.executeScript("arguments[0].click()",element);
 			WebElement accordian = driver.findElement(By.xpath("//span[text()='Accordian']"));
 			jse.executeScript("arguments[0].click()",accordian);
-			driver.close();
+	
 }
 @Test
 public void date_picker() {
@@ -76,7 +76,7 @@ public void date_picker() {
 				  break;
 			  }
 		  }	
-		  driver.close();
+		  
 }
  @Test
  public void slider() {
@@ -104,7 +104,7 @@ public void date_picker() {
 			if(status==true) {
 				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@id='resetButton']"))).click();
 			}
-			driver.close();
+		
  }	
  @Test
 	public void tabs() throws InterruptedException {
@@ -133,7 +133,7 @@ public void date_picker() {
 			jse.executeScript("arguments[0].click()",element);
 			WebElement tooltip = driver.findElement(By.xpath("//span[text()='Tool Tips']"));
 			jse.executeScript("arguments[0].click()",tooltip);
-			driver.close();
+			
 	}
 	@Test
 	public void selectmenu() {
@@ -145,7 +145,7 @@ public void date_picker() {
 			driver.findElement(By.xpath("//div[text()='Select Option']")).click();
 			WebElement ele = driver.findElement(By.xpath("//div[text()='Group 2, option 1']"));
 			jse.executeScript("arguments[0].click()",ele);
-			driver.close();
+			
 	}
 			
 }

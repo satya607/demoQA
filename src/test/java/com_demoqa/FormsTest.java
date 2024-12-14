@@ -48,7 +48,7 @@ public class FormsTest extends Baseclass {
 		   driver.findElement(By.xpath("//div[@class=' css-1gtu0rj-indicatorContainer']//*[name()='svg']")).click();
 		   
 		   driver.findElement(By.xpath("//div[text()='NCR']")).click();
-		   driver.close();
+		 
 		  
 		
  }

@@ -21,6 +21,6 @@ public class BookstoreApp extends Baseclass {
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("satya1122");
 		WebElement submit = driver.findElement(By.xpath("//button[@id='login']"));
 		jse.executeScript("arguments[0].click()",submit);
-		driver.close();
+		
  }
 }

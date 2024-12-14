@@ -15,7 +15,7 @@ public class Intractions extends Baseclass {
 				jse.executeScript("arguments[0].click()",element);
 				WebElement progressbar = driver.findElement(By.xpath("//span[text()='Sortable']"));
 				jse.executeScript("arguments[0].click()",progressbar);
-				driver.close();
+				
 	}
 }
 

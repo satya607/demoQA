@@ -35,7 +35,7 @@ public class Alert_frames_window extends Baseclass {
 					break;
 				}
 			 }		 
-			 driver.close();
+			
   }
  
      @Test
@@ -55,7 +55,7 @@ public class Alert_frames_window extends Baseclass {
 					break;
 				}
 			 }	
-			 driver.close();
+			
      }
      @Test
      public void alert() throws InterruptedException {
@@ -77,7 +77,7 @@ public class Alert_frames_window extends Baseclass {
  			WebElement promtbutton = driver.findElement(By.xpath("//button[@id='promtButton']"));
  			jse.executeScript("arguments[0].click()",promtbutton);
  			alert.sendKeys("satya");
- 			driver.close();
+ 			
      }
      @Test
      public void frames() {
@@ -94,7 +94,7 @@ public class Alert_frames_window extends Baseclass {
  			WebElement frame2 = driver.findElement(By.xpath("//iframe[@id='frame2']"));
  			driver.switchTo().frame(frame2);
  			driver.switchTo().defaultContent();
- 			driver.close();
+ 			
      }
      @Test
      public void nestedframe() {
@@ -111,6 +111,6 @@ public class Alert_frames_window extends Baseclass {
  			driver.switchTo().frame(childframe);
  			WebElement text1 = driver.findElement(By.xpath("//body/p[text()='Child Iframe']"));
  			System.out.println(text1.getText());
- 			driver.close();
+ 			
      }
 }
