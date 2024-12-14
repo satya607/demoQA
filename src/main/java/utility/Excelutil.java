@@ -16,7 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class excelutil {
+public class Excelutil {
 	 public String readEcelData(String sheetname,int rowno,int cellno) throws Throwable {
 	    	FileInputStream fis=new FileInputStream("C:\\Users\\Qapitol QA\\Downloads\\Book 3(1).xlsx");
 	    	Workbook wb = WorkbookFactory.create(fis);

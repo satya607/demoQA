@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import utility.Baseclass;
-import utility.excelutil;
+import utility.Excelutil;
 
 public class BookstoreApp extends Baseclass {
-	excelutil excel=new excelutil();
+	Excelutil excel=new Excelutil();
  @Test
  public void loginforbook() throws Throwable {
 	  WebElement element = driver.findElement(By.xpath("//h5[normalize-space()='Book Store Application']"));
@@ -21,5 +21,6 @@ public class BookstoreApp extends Baseclass {
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("satya1122");
 		WebElement submit = driver.findElement(By.xpath("//button[@id='login']"));
 		jse.executeScript("arguments[0].click()",submit);
+		driver.close();
  }
 }

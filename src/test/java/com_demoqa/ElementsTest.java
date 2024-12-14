@@ -18,14 +18,14 @@ import pases.Homepage_pom;
 import utility.Baseclass;
 import utility.ListenerImpementation;
 import utility.Webdriverutil;
-import utility.excelutil;
+import utility.Excelutil;
 @Listeners(ListenerImpementation.class)
 public class ElementsTest extends Baseclass{
 	
 	@Test(priority=1)
            public static void testbox() throws Throwable {
 		Webdriverutil	webutil=new Webdriverutil();
-		excelutil excelutil = new excelutil();
+		Excelutil excelutil = new Excelutil();
 		 Homepage_pom hp = new Homepage_pom(driver);
 		 WebElement element = hp.getElements();
 		 webutil.clickonelement(driver,element);
@@ -37,17 +37,19 @@ public class ElementsTest extends Baseclass{
 		 elementtextbox.getCurrentaddress().sendKeys(excelutil.readEcelData("Element.textbox", 2, 0));
 		 elementtextbox.getPermanentaddress().sendKeys(excelutil.readEcelData("Element.textbox", 3, 0));
 		 elementtextbox.getSubmit().click();
+		 driver.close();
            }
            @Test(priority=2)
            public static void checkbox() throws InterruptedException {
         	   Webdriverutil	webutil=new Webdriverutil();
-       		excelutil excelutil = new excelutil();
+       		Excelutil excelutil = new Excelutil();
        		 Homepage_pom hp = new Homepage_pom(driver);
        		 WebElement element = hp.getElements();
        		 webutil.clickonelement(driver,element);
        		 Element_pom elements = new Element_pom(driver);
        		 WebElement checkbox = elements.getCheckbox();
        		 webutil.clickonelement(driver, checkbox);
+       		 driver.close();
        		 
            }
            @Test(dependsOnMethods="checkbox")
@@ -64,6 +66,7 @@ public class ElementsTest extends Baseclass{
        		Thread.sleep(3000);
        		WebElement element2 = driver.findElement(By.xpath("//input[@id='impressiveRadio']"));
        		jse1.executeScript("arguments[0].click()",element2);
+       		driver.close();
        		}
            @Test
            public static void webtable() {
@@ -82,6 +85,7 @@ public class ElementsTest extends Baseclass{
        		driver.findElement(By.xpath("//input[@id='department']")).sendKeys("abc");
        		WebElement submit = driver.findElement(By.xpath("//button[@id='submit']"));
        		jse.executeScript("arguments[0].click()",submit);
+       		driver.close();
        		}
            @Test
            public static void buttontest()  {
@@ -100,6 +104,7 @@ public class ElementsTest extends Baseclass{
        		action.doubleClick(doubleclick).perform();
        		action.contextClick(rightclick).perform();
        		action.click(click);
+       		driver.close();
            }
            @Test
            public static void links() {
@@ -113,6 +118,7 @@ public class ElementsTest extends Baseclass{
        		driver.findElement(By.id("dynamicLink")).click();
        		WebElement created = driver.findElement(By.xpath("//a[text()='Created']"));
        		jse.executeScript("arguments[0].click()",created);
+       		driver.close();
            }	
           @Test
            public void brokenlinks()  {
@@ -125,6 +131,7 @@ public class ElementsTest extends Baseclass{
       		
       		WebElement validlink = driver.findElement(By.xpath("//a[text()='Click Here for Valid Link']"));
       		jse.executeScript("arguments[0].click()",validlink);
+      		driver.close();
            }
           @Test
           public void downloadandupload() {
@@ -137,5 +144,6 @@ public class ElementsTest extends Baseclass{
       		WebElement upload = driver.findElement(By.xpath("//input[@id='uploadFile']"));
       		upload.sendKeys("C:\\Users\\Qapitol QA\\Downloads\\WhatsApp Image 2024-11-07 at 6.29.40 PM.jpeg");
       		 driver.findElement(By.xpath("//a[text()='Download']")).click();
+      		 driver.close();
           }
 }

@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Random;
 
-public class javautil {
+public class Javautil {
 	public int getrandomNo() {
 		Random rd=new Random();
 		int random=rd.nextInt(500);

@@ -179,7 +179,7 @@ public class Webdriverutil {
 		return text;
 	}
 	public static String getscreenshot(WebDriver driver,String screenshotname) throws Throwable {
-		javautil jutil = new javautil();
+		Javautil jutil = new Javautil();
 		TakesScreenshot t=(TakesScreenshot)driver;
 		File src = t.getScreenshotAs(OutputType.FILE);
 		String path="./Screenshot/"+screenshotname+" "+jutil.getsystemdateinFormat()+".png";

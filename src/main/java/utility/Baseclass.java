@@ -12,7 +12,7 @@ import org.testng.annotations.Parameters;
 
 public class Baseclass {
 		public static WebDriver driver;
-		fileutility fileutil=new fileutility();
+		Fileutility fileutil=new Fileutility();
      
       @BeforeClass
       public void launchbrowser() throws Throwable {

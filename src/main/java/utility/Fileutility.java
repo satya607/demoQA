@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class fileutility {
+public class Fileutility {
 	public String readfiledata(String key) throws Throwable {
 		FileInputStream fis = new FileInputStream(".\\src\\test\\resources\\data.property");
 		Properties p = new Properties();

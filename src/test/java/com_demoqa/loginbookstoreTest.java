@@ -24,6 +24,7 @@ public class loginbookstoreTest extends Baseclass{
 	lbk.login(username,password);
 	WebElement submit = lbk.getSubmit();
 	webutil.clickonelement(driver, submit);
+	driver.close();
 	}
 	@DataProvider
 	public Object[][] getdata(){
