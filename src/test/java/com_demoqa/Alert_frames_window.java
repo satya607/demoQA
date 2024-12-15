@@ -32,6 +32,7 @@ public class Alert_frames_window extends Baseclass {
 				String title = driver.switchTo().window(currentwindow).getTitle();
 				if(title.contains("sample")) {
 					driver.switchTo().window(currentwindow);
+					
 					break;
 				}
 			 }		 
